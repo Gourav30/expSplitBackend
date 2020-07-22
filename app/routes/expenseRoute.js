@@ -6,11 +6,10 @@ const auth = require('../middlewares/auth');
 
 module.exports.setRouter = (app) => {
 
-    //let baseUrl = `${appConfig.apiVersion}/expenses`;
-    let baseUrl = 'http://api.gourav.tech/api/v1/expenses';
+    let baseUrl = `${appConfig.apiVersion}/expenses`;
+    //let baseUrl = 'http://api.gourav.tech/api/v1/expenses';
 
     app.get(`${baseUrl}/:groupId/view/all`, expenseController.getAllExpenses);
-
     /**
 	 * @apiGroup expenses
      * @apiVersion  1.0.0

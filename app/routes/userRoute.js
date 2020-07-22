@@ -6,8 +6,8 @@ const auth = require('../middlewares/auth');
 
 module.exports.setRouter = (app) => {
 
-    //let baseUrl = `${appConfig.apiVersion}/users`;
-    let baseUrl = 'http://api.gourav.tech/api/v1/users'
+    let baseUrl = `${appConfig.apiVersion}/users`;
+    //let baseUrl = 'http://api.gourav.tech/api/v1/users'
 
 
     app.get(`${baseUrl}/view/all`, auth.isAuthorized, userController.getAllUser);
@@ -154,6 +154,7 @@ module.exports.setRouter = (app) => {
     // params: firstName, lastName, email, mobileNumber, password.
 
     app.post(`${baseUrl}/login`, userController.loginFunction);
+    //app.post('http://api.gourav.tech/api/v1/users/login', userController.loginFunction);
 
     /**
      * @apiGroup users

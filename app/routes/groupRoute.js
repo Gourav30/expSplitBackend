@@ -6,8 +6,8 @@ const auth = require('../middlewares/auth');
 
 module.exports.setRouter = (app) => {
 
-    //let baseUrl = `${appConfig.apiVersion}/groups`;
-    let baseUrl = 'http://api.gourav.tech/api/v1/groups'
+    let baseUrl = `${appConfig.apiVersion}/groups`;
+    //let baseUrl = 'http://api.gourav.tech/api/v1/groups'
 
     app.get(`${baseUrl}/view/all`,auth.isAuthorized, groupController.getAllGroups);
 
