@@ -156,7 +156,7 @@ module.exports.setRouter = (app) => {
 
     // params: firstName, lastName, email, mobileNumber, password.
 
-    app.post(`${baseUrl}/login`, userController.loginFunction);
+    app.post(`${baseUrl}/login`,cors(), userController.loginFunction);
     //app.post(this.baseUrl + "api/v1/users/login", userController.loginFunction);
     //app.post('http://api.gourav.tech/api/v1/users/login', userController.loginFunction);
 
