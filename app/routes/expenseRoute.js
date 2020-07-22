@@ -1,5 +1,6 @@
 const express = require('express');
 //const router = express.Router();
+const cors = require('cors')
 const expenseController = require("../controllers/expenseController");
 const appConfig = require("../../config/appConfig")
 const auth = require('../middlewares/auth');
@@ -8,6 +9,8 @@ module.exports.setRouter = (app) => {
 
     let baseUrl = `${appConfig.apiVersion}/expenses`;
     //let baseUrl = 'http://api.gourav.tech/api/v1/expenses';
+
+    app.use(cors())
 
     app.get(`${baseUrl}/:groupId/view/all`, expenseController.getAllExpenses);
     /**

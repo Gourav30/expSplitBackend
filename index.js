@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
+const cors = require('cors')
 const http = require('http');
 const appConfig = require('./config/appConfig');
 const logger = require('./app/libs/loggerLib');
@@ -13,7 +14,7 @@ const globalErrorMiddleware = require('./app/middlewares/appErrorHandler');
 const mongoose = require('mongoose');
 // const morgan = require('morgan');
 
-
+app.use(cors());
 // app.use(morgan('dev'));
 
 app.use(bodyParser.json());
