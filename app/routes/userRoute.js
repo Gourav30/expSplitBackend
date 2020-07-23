@@ -8,7 +8,7 @@ const auth = require('../middlewares/auth');
 module.exports.setRouter = (app) => {
 
     let baseUrl = `${appConfig.apiVersion}/users`;
-    //let baseUrl = 'http://api.gourav.tech/'
+    //let baseUrl = 'http://api.gourav.tech/api/v1/users/'
 
     app.use(cors())
 
@@ -156,7 +156,7 @@ module.exports.setRouter = (app) => {
 
     // params: firstName, lastName, email, mobileNumber, password.
 
-    app.post(`${baseUrl}/login`,cors(), userController.loginFunction);
+    app.post(`${baseUrl}/login`, userController.loginFunction);
     //app.post(this.baseUrl + "api/v1/users/login", userController.loginFunction);
     //app.post('http://api.gourav.tech/api/v1/users/login', userController.loginFunction);
 
@@ -270,8 +270,6 @@ module.exports.setRouter = (app) => {
 
     // params: email, password.
 
-
-
     app.post(`${baseUrl}/logout`, userController.logout);
 
     /**
@@ -292,7 +290,6 @@ module.exports.setRouter = (app) => {
      *
      *       }
      */
-
     // auth token params: userId.
 
 }
