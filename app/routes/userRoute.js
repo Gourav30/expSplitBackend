@@ -65,6 +65,7 @@ module.exports.setRouter = (app) => {
 
 
     // params: userId.
+
     app.get(`${baseUrl}/:userId/details`, userController.getSingleUser);
     /**
      * @apiGroup users

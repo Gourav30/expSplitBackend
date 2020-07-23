@@ -20,54 +20,54 @@ module.exports.setRouter = (app) => {
 	 *
 	 * @apiSuccessExample {json} Success-Response:
 	 *      {
-                "error": false,
-                "message": "List of Expenses",
-                "status": 200,
-                "data": [
-                    {
-                        "expenseTitle": "Trip of Delhi",
-                        "expenseDescription": "trip of delhi",
-                        "_id": "5f187838db306a08949dbed1",
-                        "expenseId": "t0BRSld0G",
-                        "groupId": "xSB4Xa6aL",
-                        "expenseAmount": 3000,
-                        "createdBy": {
-                            "firstName": "Gourav",
-                            "_id": "5f0b4386589f6f1834ff40e2"
-                        },
-                        "paidBy": [
-                            {
-                                "_id": "5f187838db306a08949dbed2",
-                                "user": {
-                                    "firstName": "Gourav",
-                                    "_id": "5f0b4386589f6f1834ff40e2"
-                                },
-                                "amountLent": 3000
-                            }
-                        ],
-                        "usersInvolved": [
-                            {
-                                "_id": "5f187838db306a08949dbed3",
-                                "user": "5f0b4386589f6f1834ff40e2",
-                                "amountSpent": 1000
-                            },
-                            {
-                                "_id": "5f187838db306a08949dbed4",
-                                "user": "5f0b553ba17c955020d19142",
-                                "amountSpent": 1000
-                            },
-                            {
-                                "_id": "5f187838db306a08949dbed5",
-                                "user": "5f11dee0ec68be3578bb61bf",
-                                "amountSpent": 1000
-                            }
-                        ],
-                        "createdAt": "2020-07-22T17:32:40.114Z",
-                        "updatedAt": "2020-07-22T17:32:40.114Z",
-                        "__v": 0
-                    }
-                ]
-            }
+     *           "error": false,
+     *           "message": "List of Expenses",
+     *           "status": 200,
+     *           "data": [
+     *               {
+     *                   "expenseTitle": "Trip of Delhi",
+     *                   "expenseDescription": "trip of delhi",
+     *                   "_id": "5f187838db306a08949dbed1",
+     *                   "expenseId": "t0BRSld0G",
+     *                   "groupId": "xSB4Xa6aL",
+     *                   "expenseAmount": 3000,
+     *                   "createdBy": {
+     *                       "firstName": "Gourav",
+     *                       "_id": "5f0b4386589f6f1834ff40e2"
+     *                   },
+     *                   "paidBy": [
+     *                       {
+     *                           "_id": "5f187838db306a08949dbed2",
+     *                           "user": {
+     *                               "firstName": "Gourav",
+     *                               "_id": "5f0b4386589f6f1834ff40e2"
+     *                           },
+     *                           "amountLent": 3000
+     *                       }
+     *                   ],
+     *                   "usersInvolved": [
+     *                       {
+     *                           "_id": "5f187838db306a08949dbed3",
+     *                           "user": "5f0b4386589f6f1834ff40e2",
+     *                           "amountSpent": 1000
+     *                       },
+     *                       {
+     *                           "_id": "5f187838db306a08949dbed4",
+     *                           "user": "5f0b553ba17c955020d19142",
+     *                           "amountSpent": 1000
+     *                       },
+     *                       {
+     *                           "_id": "5f187838db306a08949dbed5",
+     *                           "user": "5f11dee0ec68be3578bb61bf",
+     *                           "amountSpent": 1000
+     *                       }
+     *                   ],
+     *                   "createdAt": "2020-07-22T17:32:40.114Z",
+     *                   "updatedAt": "2020-07-22T17:32:40.114Z",
+     *                   "__v": 0
+     *               }
+     *           ]
+     *       }
      *
 	 * @apiErrorExample {json} Error-Response:
 	 *
@@ -96,61 +96,61 @@ module.exports.setRouter = (app) => {
      *
      * @apiSuccessExample {object} Success-Response:
      *      {
-                "error": false,
-                "message": "expense Details Found",
-                "status": 200,
-                "data": {
-                    "expenseTitle": "Trip of Delhi",
-                    "expenseDescription": "trip of delhi",
-                    "_id": "5f187838db306a08949dbed1",
-                    "expenseId": "t0BRSld0G",
-                    "groupId": "xSB4Xa6aL",
-                    "expenseAmount": 3000,
-                    "createdBy": {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                    },
-                    "paidBy": [
-                        {
-                            "_id": "5f187838db306a08949dbed2",
-                            "user": {
-                                "firstName": "Gourav",
-                                "_id": "5f0b4386589f6f1834ff40e2"
-                            },
-                            "amountLent": 3000
-                        }
-                    ],
-                    "usersInvolved": [
-                        {
-                            "_id": "5f187838db306a08949dbed3",
-                            "user": {
-                                "firstName": "Gourav",
-                                "_id": "5f0b4386589f6f1834ff40e2"
-                            },
-                            "amountSpent": 1000
-                        },
-                        {
-                            "_id": "5f187838db306a08949dbed4",
-                            "user": {
-                                "firstName": "Vikas",
-                                "_id": "5f0b553ba17c955020d19142"
-                            },
-                            "amountSpent": 1000
-                        },
-                        {
-                            "_id": "5f187838db306a08949dbed5",
-                            "user": {
-                                "firstName": "vivek",
-                                "_id": "5f11dee0ec68be3578bb61bf"
-                            },
-                            "amountSpent": 1000
-                        }
-                    ],
-                    "createdAt": "2020-07-22T17:32:40.114Z",
-                    "updatedAt": "2020-07-22T17:32:40.114Z",
-                    "__v": 0
-                }
-            }
+     *           "error": false,
+     *           "message": "expense Details Found",
+     *           "status": 200,
+     *           "data": {
+     *               "expenseTitle": "Trip of Delhi",
+     *               "expenseDescription": "trip of delhi",
+     *               "_id": "5f187838db306a08949dbed1",
+     *               "expenseId": "t0BRSld0G",
+     *               "groupId": "xSB4Xa6aL",
+     *               "expenseAmount": 3000,
+     *               "createdBy": {
+     *                   "firstName": "Gourav",
+     *                   "_id": "5f0b4386589f6f1834ff40e2"
+     *               },
+     *               "paidBy": [
+     *                   {
+     *                       "_id": "5f187838db306a08949dbed2",
+     *                       "user": {
+     *                           "firstName": "Gourav",
+     *                           "_id": "5f0b4386589f6f1834ff40e2"
+     *                       },
+     *                       "amountLent": 3000
+     *                   }
+     *               ],
+     *               "usersInvolved": [
+     *                   {
+     *                       "_id": "5f187838db306a08949dbed3",
+     *                       "user": {
+     *                           "firstName": "Gourav",
+     *                           "_id": "5f0b4386589f6f1834ff40e2"
+     *                       },
+     *                       "amountSpent": 1000
+     *                   },
+     *                   {
+     *                       "_id": "5f187838db306a08949dbed4",
+     *                       "user": {
+     *                           "firstName": "Vikas",
+     *                           "_id": "5f0b553ba17c955020d19142"
+     *                       },
+     *                       "amountSpent": 1000
+     *                   },
+     *                   {
+     *                       "_id": "5f187838db306a08949dbed5",
+     *                       "user": {
+     *                           "firstName": "vivek",
+     *                           "_id": "5f11dee0ec68be3578bb61bf"
+     *                       },
+     *                       "amountSpent": 1000
+     *                   }
+     *               ],
+     *               "createdAt": "2020-07-22T17:32:40.114Z",
+     *               "updatedAt": "2020-07-22T17:32:40.114Z",
+     *               "__v": 0
+     *           }
+     *       }
      *   @apiErrorExample {json} Error-Response:
 	 *
 	 * {
@@ -179,46 +179,46 @@ module.exports.setRouter = (app) => {
      *
      *  @apiSuccessExample {json} Success-Response:
      *      {
-                "error": false,
-                "message": "created succesfully",
-                "status": 200,
-                "data": {
-                    "expenseTitle": "Trip of Delhi",
-                    "expenseDescription": "trip of delhi",
-                    "_id": "5f187838db306a08949dbed1",
-                    "expenseId": "t0BRSld0G",
-                    "groupId": "xSB4Xa6aL",
-                    "expenseAmount": 3000,
-                    "createdBy": "5f0b4386589f6f1834ff40e2",
-                    "paidBy": [
-                    {
-                        "_id": "5f187838db306a08949dbed2",
-                        "user": "5f0b4386589f6f1834ff40e2",
-                        "amountLent": 3000
-                    }
-                    ],
-                    "usersInvolved": [
-                    {
-                        "_id": "5f187838db306a08949dbed3",
-                        "user": "5f0b4386589f6f1834ff40e2",
-                        "amountSpent": 1000
-                    },
-                    {
-                        "_id": "5f187838db306a08949dbed4",
-                        "user": "5f0b553ba17c955020d19142",
-                        "amountSpent": 1000
-                    },
-                    {
-                        "_id": "5f187838db306a08949dbed5",
-                        "user": "5f11dee0ec68be3578bb61bf",
-                        "amountSpent": 1000
-                    }
-                    ],
-                    "createdAt": "2020-07-22T17:32:40.114Z",
-                    "updatedAt": "2020-07-22T17:32:40.114Z",
-                    "__v": 0
-                }
-                }
+     *           "error": false,
+     *           "message": "created succesfully",
+     *           "status": 200,
+     *           "data": {
+     *               "expenseTitle": "Trip of Delhi",
+     *               "expenseDescription": "trip of delhi",
+     *               "_id": "5f187838db306a08949dbed1",
+     *               "expenseId": "t0BRSld0G",
+     *               "groupId": "xSB4Xa6aL",
+     *               "expenseAmount": 3000,
+     *               "createdBy": "5f0b4386589f6f1834ff40e2",
+     *               "paidBy": [
+     *               {
+     *                   "_id": "5f187838db306a08949dbed2",
+     *                   "user": "5f0b4386589f6f1834ff40e2",
+     *                   "amountLent": 3000
+     *               }
+     *               ],
+     *               "usersInvolved": [
+     *               {
+     *                   "_id": "5f187838db306a08949dbed3",
+     *                   "user": "5f0b4386589f6f1834ff40e2",
+     *                   "amountSpent": 1000
+     *               },
+     *               {
+     *                   "_id": "5f187838db306a08949dbed4",
+     *                   "user": "5f0b553ba17c955020d19142",
+     *                   "amountSpent": 1000
+     *               },
+     *               {
+     *                   "_id": "5f187838db306a08949dbed5",
+     *                   "user": "5f11dee0ec68be3578bb61bf",
+     *                   "amountSpent": 1000
+     *               }
+     *               ],
+     *               "createdAt": "2020-07-22T17:32:40.114Z",
+     *               "updatedAt": "2020-07-22T17:32:40.114Z",
+     *               "__v": 0
+     *           }
+     *           }
      *      }
      *   @apiErrorExample {json} Error-Response:
      *    {

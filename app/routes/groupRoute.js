@@ -21,69 +21,69 @@ module.exports.setRouter = (app) => {
 	 *
 	 * @apiSuccessExample {json} Success-Response:
 	 *      {
-                "error": false,
-                "message": "List of groups",
-                "status": 200,
-                "data": [
-                    {
-                        "groupName": "test",
-                        "groupDescription": "test",
-                        "users": [
-                            "5f0b4386589f6f1834ff40e2",
-                            "5f0b553ba17c955020d19142"
-                        ],
-                        "groupId": "u8hIPtxOX",
-                        "createdBy": "5f0b553ba17c955020d19142",
-                        "createdAt": "2020-07-16T18:50:03.845Z",
-                        "updatedAt": "2020-07-16T18:50:03.845Z",
-                        "__v": 0
-                    },
-                    {
-                        "groupName": "Test Gourav",
-                        "groupDescription": "Test Gourav",
-                        "users": [
-                            "5f0b4386589f6f1834ff40e2",
-                            "5f0b553ba17c955020d19142",
-                            "5f11dee0ec68be3578bb61bf"
-                        ],
-                        "groupId": "fE_lKwYm5",
-                        "createdBy": "5f0b4386589f6f1834ff40e2",
-                        "createdAt": "2020-07-18T18:22:52.993Z",
-                        "updatedAt": "2020-07-18T18:22:52.993Z",
-                        "__v": 0
-                    },
-                    {
-                        "groupName": "gorv test",
-                        "groupDescription": "gorv test",
-                        "users": [
-                            "5f0b4386589f6f1834ff40e2",
-                            "5f0b553ba17c955020d19142",
-                            "5f11dee0ec68be3578bb61bf",
-                            "5f167d35cb31de095cddba1a",
-                            "5f167ea032b9ff191866d519"
-                        ],
-                        "groupId": "JuHQPtdP3",
-                        "createdBy": "5f1737a9d7439a39dcf33bc8",
-                        "createdAt": "2020-07-21T18:52:21.220Z",
-                        "updatedAt": "2020-07-21T18:52:21.220Z",
-                        "__v": 0
-                    },
-                    {
-                        "groupName": "gorv test",
-                        "groupDescription": "gorv test",
-                        "users": [
-                            "5f0b4386589f6f1834ff40e2",
-                            "5f0b553ba17c955020d19142",
-                            "5f11dee0ec68be3578bb61bf"
-                        ],
-                        "groupId": "REzQAKGFS",
-                        "createdBy": "5f1737a9d7439a39dcf33bc8",
-                        "createdAt": "2020-07-21T18:54:26.710Z",
-                        "updatedAt": "2020-07-21T18:54:26.710Z",
-                        "__v": 0
-                    }
-                ]
-            }
+     *           "error": false,
+     *           "message": "List of groups",
+     *           "status": 200,
+     *           "data": [
+     *               {
+     *                   "groupName": "test",
+     *                   "groupDescription": "test",
+     *                   "users": [
+     *                       "5f0b4386589f6f1834ff40e2",
+     *                       "5f0b553ba17c955020d19142"
+     *                   ],
+     *                   "groupId": "u8hIPtxOX",
+     *                   "createdBy": "5f0b553ba17c955020d19142",
+     *                   "createdAt": "2020-07-16T18:50:03.845Z",
+     *                   "updatedAt": "2020-07-16T18:50:03.845Z",
+     *                   "__v": 0
+     *               },
+     *               {
+     *                   "groupName": "Test Gourav",
+     *                   "groupDescription": "Test Gourav",
+     *                   "users": [
+     *                       "5f0b4386589f6f1834ff40e2",
+     *                       "5f0b553ba17c955020d19142",
+     *                       "5f11dee0ec68be3578bb61bf"
+     *                   ],
+     *                   "groupId": "fE_lKwYm5",
+     *                   "createdBy": "5f0b4386589f6f1834ff40e2",
+     *                   "createdAt": "2020-07-18T18:22:52.993Z",
+     *                   "updatedAt": "2020-07-18T18:22:52.993Z",
+     *                   "__v": 0
+     *               },
+     *               {
+     *                   "groupName": "gorv test",
+     *                   "groupDescription": "gorv test",
+     *                   "users": [
+     *                       "5f0b4386589f6f1834ff40e2",
+     *                       "5f0b553ba17c955020d19142",
+     *                       "5f11dee0ec68be3578bb61bf",
+     *                       "5f167d35cb31de095cddba1a",
+     *                       "5f167ea032b9ff191866d519"
+     *                   ],
+     *                   "groupId": "JuHQPtdP3",
+     *                   "createdBy": "5f1737a9d7439a39dcf33bc8",
+     *                   "createdAt": "2020-07-21T18:52:21.220Z",
+     *                   "updatedAt": "2020-07-21T18:52:21.220Z",
+     *                   "__v": 0
+     *               },
+     *               {
+     *                   "groupName": "gorv test",
+     *                   "groupDescription": "gorv test",
+     *                   "users": [
+     *                       "5f0b4386589f6f1834ff40e2",
+     *                       "5f0b553ba17c955020d19142",
+     *                       "5f11dee0ec68be3578bb61bf"
+     *                   ],
+     *                   "groupId": "REzQAKGFS",
+     *                   "createdBy": "5f1737a9d7439a39dcf33bc8",
+     *                   "createdAt": "2020-07-21T18:54:26.710Z",
+     *                   "updatedAt": "2020-07-21T18:54:26.710Z",
+     *                   "__v": 0
+     *               }
+     *           ]
+     *       }
      *
 	 * @apiErrorExample {json} Error-Response:
 	 *
@@ -111,64 +111,64 @@ module.exports.setRouter = (app) => {
       *
       * @apiSuccessExample {object} Success-Response:
       *    {
-                "error": false,
-                "message": "List of groups",
-                "status": 200,
-                "data": [
-                    {
-                    "groupName": "test",
-                    "groupDescription": "test",
-                    "users": [
-                        {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                        },
-                        {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                        }
-                    ],
-                    "_id": "5f10a15be7cb394914faadc1",
-                    "groupId": "u8hIPtxOX",
-                    "createdBy": {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                    },
-                    "createdAt": "2020-07-16T18:50:03.845Z",
-                    "updatedAt": "2020-07-16T18:50:03.845Z",
-                    "__v": 0
-                    },
-                    {
-                    "groupName": "Test Gourav",
-                    "groupDescription": "Test Gourav",
-                    "users": [
-                        {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                        },
-                        {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                        },
-                        {
-                        "firstName": "vivek",
-                        "_id": "5f11dee0ec68be3578bb61bf"
-                        }
-                    ],
-                    "_id": "5f133dfcec68be3578bb61c9",
-                    "groupId": "fE_lKwYm5",
-                    "createdBy": {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                    },
-                    "createdAt": "2020-07-18T18:22:52.993Z",
-                    "updatedAt": "2020-07-18T18:22:52.993Z",
-                    "__v": 0
-                    },
-                ]
-            }
-         *
-     */
+      *          "error": false,
+      *          "message": "List of groups",
+      *          "status": 200,
+      *          "data": [
+      *              {
+      *              "groupName": "test",
+      *              "groupDescription": "test",
+      *              "users": [
+      *                  {
+      *                  "firstName": "Gourav",
+      *                  "_id": "5f0b4386589f6f1834ff40e2"
+      *                  },
+      *                  {
+      *                  "firstName": "Vikas",
+      *                  "_id": "5f0b553ba17c955020d19142"
+      *                  }
+      *              ],
+      *              "_id": "5f10a15be7cb394914faadc1",
+      *              "groupId": "u8hIPtxOX",
+      *              "createdBy": {
+      *                  "firstName": "Vikas",
+      *                  "_id": "5f0b553ba17c955020d19142"
+      *           },
+      *              "createdAt": "2020-07-16T18:50:03.845Z",
+      *              "updatedAt": "2020-07-16T18:50:03.845Z",
+      *           "__v": 0
+      *              },
+      *              {
+      *              "groupName": "Test Gourav",
+      *              "groupDescription": "Test Gourav",
+      *              "users": [
+      *                  {
+      *                  "firstName": "Gourav",
+      *                  "_id": "5f0b4386589f6f1834ff40e2"
+      *                  },
+      *                  {
+      *                  "firstName": "Vikas",
+      *                  "_id": "5f0b553ba17c955020d19142"
+      *                  },
+      *                  {
+      *                  "firstName": "vivek",
+      *                  "_id": "5f11dee0ec68be3578bb61bf"
+      *                  }
+      *              ],
+      *              "_id": "5f133dfcec68be3578bb61c9",
+      *              "groupId": "fE_lKwYm5",
+      *              "createdBy": {
+      *                  "firstName": "Gourav",
+      *                  "_id": "5f0b4386589f6f1834ff40e2"
+      *              },
+      *              "createdAt": "2020-07-18T18:22:52.993Z",
+      *              "updatedAt": "2020-07-18T18:22:52.993Z",
+      *              "__v": 0
+      *              },
+      *          ]
+      *      }
+      *
+      */
     // params: groupId.
     app.get(`${baseUrl}/getAllUsersForAGroup`, auth.isAuthorized, groupController.getAllUsersForAGroup);
     /**
@@ -183,34 +183,34 @@ module.exports.setRouter = (app) => {
       *
       * @apiSuccessExample {object} Success-Response:
       *    {
-                "error": false,
-                "message": "List of users in a group",
-                "status": 200,
-                "data": {
-                    "groupName": "test",
-                    "groupDescription": "test",
-                    "users": [
-                    {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                    },
-                    {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                    }
-                    ],
-                    "_id": "5f10a15be7cb394914faadc1",
-                    "groupId": "u8hIPtxOX",
-                    "createdBy": {
-                    "firstName": "Vikas",
-                    "_id": "5f0b553ba17c955020d19142"
-                    },
-                    "createdAt": "2020-07-16T18:50:03.845Z",
-                    "updatedAt": "2020-07-16T18:50:03.845Z",
-                    "__v": 0
-                }
-                }
-     */
+      *          "error": false,
+      *          "message": "List of users in a group",
+      *          "status": 200,
+      *          "data": {
+      *              "groupName": "test",
+      *              "groupDescription": "test",
+      *              "users": [
+      *              {
+      *                  "firstName": "Gourav",
+      *                  "_id": "5f0b4386589f6f1834ff40e2"
+      *              },
+      *              {
+      *                  "firstName": "Vikas",
+      *                  "_id": "5f0b553ba17c955020d19142"
+      *              }
+      *              ],
+      *              "_id": "5f10a15be7cb394914faadc1",
+      *              "groupId": "u8hIPtxOX",
+      *              "createdBy": {
+      *              "firstName": "Vikas",
+      *              "_id": "5f0b553ba17c955020d19142"
+      *              },
+      *              "createdAt": "2020-07-16T18:50:03.845Z",
+      *              "updatedAt": "2020-07-16T18:50:03.845Z",
+      *              "__v": 0
+      *          }
+      *          }
+      */
     // params: groupId.
     app.get(`${baseUrl}/getSingleGroupDetails`, auth.isAuthorized, groupController.getSingleGroupDetails);
     /**
@@ -226,33 +226,33 @@ module.exports.setRouter = (app) => {
      *
      * @apiSuccessExample {object} Success-Response:
      *    {
-                "error": false,
-                "message": "group Details Found",
-                "status": 200,
-                "data": {
-                    "groupName": "test",
-                    "groupDescription": "test",
-                    "users": [
-                    {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                    },
-                    {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                    }
-                    ],
-                    "_id": "5f10a15be7cb394914faadc1",
-                    "groupId": "u8hIPtxOX",
-                    "createdBy": {
-                    "firstName": "Vikas",
-                    "_id": "5f0b553ba17c955020d19142"
-                    },
-                    "createdAt": "2020-07-16T18:50:03.845Z",
-                    "updatedAt": "2020-07-16T18:50:03.845Z",
-                    "__v": 0
-                }
-                }
+     *           "error": false,
+     *           "message": "group Details Found",
+     *           "status": 200,
+     *           "data": {
+     *               "groupName": "test",
+     *               "groupDescription": "test",
+     *               "users": [
+     *               {
+     *                   "firstName": "Gourav",
+     *                   "_id": "5f0b4386589f6f1834ff40e2"
+     *               },
+     *               {
+     *                   "firstName": "Vikas",
+     *                   "_id": "5f0b553ba17c955020d19142"
+     *               }
+     *               ],
+     *               "_id": "5f10a15be7cb394914faadc1",
+     *               "groupId": "u8hIPtxOX",
+     *               "createdBy": {
+     *               "firstName": "Vikas",
+     *               "_id": "5f0b553ba17c955020d19142"
+     *               },
+     *               "createdAt": "2020-07-16T18:50:03.845Z",
+     *               "updatedAt": "2020-07-16T18:50:03.845Z",
+     *               "__v": 0
+     *           }
+     *           }
      *
      *       `      }
      *   }
@@ -283,62 +283,62 @@ module.exports.setRouter = (app) => {
      *
      *  @apiSuccessExample {json} Success-Response:
      *  {
-                "error": false,
-                "message": "List of groups",
-                "status": 200,
-                "data": [
-                    {
-                    "groupName": "test",
-                    "groupDescription": "test",
-                    "users": [
-                        {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                        },
-                        {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                        }
-                    ],
-                    "_id": "5f10a15be7cb394914faadc1",
-                    "groupId": "u8hIPtxOX",
-                    "createdBy": {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                    },
-                    "createdAt": "2020-07-16T18:50:03.845Z",
-                    "updatedAt": "2020-07-16T18:50:03.845Z",
-                    "__v": 0
-                    },
-                    {
-                    "groupName": "Test Gourav",
-                    "groupDescription": "Test Gourav",
-                    "users": [
-                        {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                        },
-                        {
-                        "firstName": "Vikas",
-                        "_id": "5f0b553ba17c955020d19142"
-                        },
-                        {
-                        "firstName": "vivek",
-                        "_id": "5f11dee0ec68be3578bb61bf"
-                        }
-                    ],
-                    "_id": "5f133dfcec68be3578bb61c9",
-                    "groupId": "fE_lKwYm5",
-                    "createdBy": {
-                        "firstName": "Gourav",
-                        "_id": "5f0b4386589f6f1834ff40e2"
-                    },
-                    "createdAt": "2020-07-18T18:22:52.993Z",
-                    "updatedAt": "2020-07-18T18:22:52.993Z",
-                    "__v": 0
-                    },
-                ]
-                }
+     *           "error": false,
+     *           "message": "List of groups",
+     *           "status": 200,
+     *           "data": [
+     *               {
+     *               "groupName": "test",
+     *               "groupDescription": "test",
+     *               "users": [
+     *                   {
+     *                   "firstName": "Gourav",
+     *                   "_id": "5f0b4386589f6f1834ff40e2"
+     *                   },
+     *                   {
+     *                   "firstName": "Vikas",
+     *                   "_id": "5f0b553ba17c955020d19142"
+     *                   }
+     *               ],
+     *               "_id": "5f10a15be7cb394914faadc1",
+     *               "groupId": "u8hIPtxOX",
+     *               "createdBy": {
+     *                   "firstName": "Vikas",
+     *                   "_id": "5f0b553ba17c955020d19142"
+     *               },
+     *               "createdAt": "2020-07-16T18:50:03.845Z",
+     *               "updatedAt": "2020-07-16T18:50:03.845Z",
+     *               "__v": 0
+     *               },
+     *               {
+     *               "groupName": "Test Gourav",
+     *               "groupDescription": "Test Gourav",
+     *               "users": [
+     *                   {
+     *                   "firstName": "Gourav",
+     *                   "_id": "5f0b4386589f6f1834ff40e2"
+     *                   },
+     *                   {
+     *                   "firstName": "Vikas",
+     *                   "_id": "5f0b553ba17c955020d19142"
+     *                   },
+     *                   {
+     *                   "firstName": "vivek",
+     *                   "_id": "5f11dee0ec68be3578bb61bf"
+     *                   }
+     *               ],
+     *               "_id": "5f133dfcec68be3578bb61c9",
+     *               "groupId": "fE_lKwYm5",
+     *               "createdBy": {
+     *                   "firstName": "Gourav",
+     *                   "_id": "5f0b4386589f6f1834ff40e2"
+     *               },
+     *               "createdAt": "2020-07-18T18:22:52.993Z",
+     *               "updatedAt": "2020-07-18T18:22:52.993Z",
+     *               "__v": 0
+     *               },
+     *           ]
+     *           }
      *   @apiErrorExample {json} Error-Response:
      *    {
      *      "error":true,
