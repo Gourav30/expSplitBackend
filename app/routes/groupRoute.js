@@ -102,7 +102,7 @@ module.exports.setRouter = (app) => {
     /**
       * @apiGroup groups
       * @apiVersion  1.0.0
-      * @api {get} /api/v1/groups/:groupId/getAllUsersForAGroup [Get list of users in a group]
+      * @api {get} /api/v1/groups/:groupId/getAllGroupsForaUser [Get list of group for a user]
       * @apiParam {String} authToken The token for authentication.(Send authToken as query parameter, body parameter or as a header)
       * @apiParam {String} groupId The groupId should be passed as the URL parameter
       *

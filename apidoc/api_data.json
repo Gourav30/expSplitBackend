@@ -341,8 +341,8 @@
     "group": "groups",
     "version": "1.0.0",
     "type": "get",
-    "url": "/api/v1/groups/:groupId/getAllUsersForAGroup",
-    "title": "[Get list of users in a group]",
+    "url": "/api/v1/groups/:groupId/getAllGroupsForaUser",
+    "title": "[Get list of group for a user]",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -385,7 +385,7 @@
     },
     "filename": "app/routes/groupRoute.js",
     "groupTitle": "groups",
-    "name": "GetApiV1GroupsGroupidGetallusersforagroup"
+    "name": "GetApiV1GroupsGroupidGetallgroupsforauser"
   },
   {
     "group": "groups",
