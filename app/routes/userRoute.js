@@ -1,5 +1,5 @@
 const express = require('express');
-//const router = express.Router();
+const router = express.Router();
 const cors = require('cors')
 const userController = require("../controllers/userController");
 const appConfig = require("../../config/appConfig")
@@ -67,7 +67,7 @@ module.exports.setRouter = (app) => {
 
 
     // params: userId.
-    app.get(`${baseUrl}/:userId/details`, auth.isAuthorized, userController.getSingleUser);
+    app.get(`${baseUrl}/:userId/details`, userController.getSingleUser);
     /**
      * @apiGroup users
      * @apiVersion  1.0.0
