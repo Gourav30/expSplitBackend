@@ -9,7 +9,6 @@ module.exports.setRouter = (app) => {
 
 
     let baseUrl = `${appConfig.apiVersion}/groups`;
-    //let baseUrl = 'http://api.gourav.tech/api/v1/groups'
 
     app.use(cors())
 
