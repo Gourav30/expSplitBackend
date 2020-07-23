@@ -7,7 +7,6 @@ const auth = require('../middlewares/auth');
 
 module.exports.setRouter = (app) => {
 
-
     let baseUrl = `${appConfig.apiVersion}/groups`;
 
     app.use(cors())
