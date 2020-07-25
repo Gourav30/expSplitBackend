@@ -342,7 +342,7 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
                         })
 
 
-                        let text="Expense "+data.expenseTitle+" "+"created by "+data.createdBy.firsName+" "+"with amount "+data.expenseAmount;
+                        let text="Expense "+data.expenseTitle+" "+"created by "+data.createdBy.firstName+" "+"with amount "+data.expenseAmount;
                 mailLib.sendMail(toList,"Expense Creation Alert",text);
             }
         });
@@ -375,7 +375,7 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
                     users.forEach(element => {
                         toList.push(users.email);
                       });
-                        let text="Expense "+data.expenseTitle+" "+"updated by "+data.createdBy.firsName+" "+"with amount "+data.expenseAmount;
+                        let text="Expense "+data.expenseTitle+" "+"updated by "+data.createdBy.firstName+" "+"with amount "+data.expenseAmount;
                 mailLib.sendMail(toList,"Expense Update Alert",text);
             }
         });
@@ -406,7 +406,7 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
                     users.forEach(element => {
                         toList.push(users.email);
                       });
-                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.createdBy.firsName;
+                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.createdBy.firstName;
                 mailLib.sendMail(toList,"Expense Delete Alert",text);
             }
         });
