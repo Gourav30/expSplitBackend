@@ -5,7 +5,7 @@ const logger = require('./loggerLib.js');
 const events = require('events');
 const eventEmitter = new events.EventEmitter();
 const tokenLib = require("./tokenLib.js");
-const check = require('../libs/checkLib');
+const check = require('./checkLib');
 
 let setServer = (server) => {
 
