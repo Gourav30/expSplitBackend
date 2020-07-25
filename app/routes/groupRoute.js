@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors')
+const cors = require('cors');
 const groupController = require("../controllers/groupController");
 const appConfig = require("../../config/appConfig")
 const auth = require('../middlewares/auth');
@@ -9,7 +9,7 @@ module.exports.setRouter = (app) => {
 
     let baseUrl = `${appConfig.apiVersion}/groups`;
 
-    app.use(cors())
+    app.use(cors());
 
     app.get(`${baseUrl}/view/all`,auth.isAuthorized, groupController.getAllGroups);
 

@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 const http = require('http');
 const appConfig = require('./config/appConfig');
 const logger = require('./app/libs/loggerLib');
