@@ -10,6 +10,7 @@ const mailLib =require('../libs/mailLib')
 
 const ExpenseModel = mongoose.model('Expense');
 const groupModel = mongoose.model('Group');
+const userModel = mongoose.model('User');
 let events = require('events');
 let eventEmitter = new events.EventEmitter();
 const ExpenseHistoryModel = mongoose.model('ExpenseHistory')
@@ -56,10 +57,12 @@ let createExpense = (req, res) => {
 
     let usersInvolved=JSON.parse(req.body.usersInvolved);
     let paidBy1=JSON.parse(req.body.paidBy);
+    //let firstName1 = JSON.parse(req.body.firstName);
 
     let newExpense = new ExpenseModel({
 
         expenseId: expenseId,
+        //firstName:firstName1,
         groupId: req.body.groupId,
         expenseTitle:req.body.expenseTitle,
         expenseDescription:req.body.expenseDescription,
@@ -141,7 +144,7 @@ let updateExpense = (req, res) => {
                         res.send(apiResponse);
 
                      ExpenseModel.findOne({ 'expenseId': req.params.expenseId })
-                     .populate({ path: 'createdBy', select: 'firstName' })
+                                .populate({ path: 'createdBy', select: 'firstName' })
                                 .populate({path:'paidBy.user',select:'firstName'})
                                 .populate({path:'usersInvolved.user',select:'firstName'})
                                 .exec((err, data) => {
@@ -157,8 +160,8 @@ let updateExpense = (req, res) => {
                         }
                         else {
 
-                                        eventEmitter.emit('saveUpdateExpenseHistory',data);
-                                        eventEmitter.emit('sendExpenseUpdateMail', data);
+                            eventEmitter.emit('saveUpdateExpenseHistory',data);
+                            eventEmitter.emit('sendExpenseUpdateMail', data);
                             }
                         })
                         }
@@ -312,8 +315,6 @@ eventEmitter.on('saveDeleteExpenseHistory',(data) =>{
 })
 
 
-
-
 //send email for  expense creation code start
 eventEmitter.on('sendExpenseCreatedMail', (data) => {
 
@@ -331,7 +332,8 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
             else  {
 
                     let users=groupDetails.users;
-                  //  console.log(users);
+                    //console.log(users);
+                    //console.log(data.firstName);
                     let toList=new Array();
 
                     users.forEach(element => {
@@ -342,8 +344,9 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
                         })
 
 
-                        let text="Expense "+data.expenseTitle+" "+"created by "+data.createdBy.firstName+" "+"with amount "+data.expenseAmount;
+                        let text="Expense "+data.expenseTitle+" "+"created by "+data.createdBy+" "+"with amount "+data.expenseAmount;
                 mailLib.sendMail(toList,"Expense Creation Alert",text);
+
             }
         });
 
@@ -352,8 +355,8 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
     }
 });
 
-
 //send email for expense creation code is end
+
 
 eventEmitter.on('sendExpenseUpdateMail', (data) => {
     if (data.groupId) {
@@ -364,7 +367,6 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
                 logger.error('Error while finding user', 'expenseController: findUser()', 7)
             }
             else if (check.isEmpty(groupDetails)) {
-
                 logger.error('No User Found', 'expenseController: findUser()', 7)
             }
             else  {
@@ -375,7 +377,7 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
                     users.forEach(element => {
                         toList.push(users.email);
                       });
-                        let text="Expense "+data.expenseTitle+" "+"updated by "+data.createdBy.firstName+" "+"with amount "+data.expenseAmount;
+                        let text="Expense "+data.expenseTitle+" "+"updated by "+data.createdBy+" "+"with amount "+data.expenseAmount;
                 mailLib.sendMail(toList,"Expense Update Alert",text);
             }
         });
@@ -386,6 +388,8 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
 });
 
 //send email for expense creation  code is end
+
+
 eventEmitter.on('sendExpenseDeleteMail', (data) => {
     if (data.groupId) {
         groupModel.findOne({ groupId: data.groupId })
@@ -406,7 +410,7 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
                     users.forEach(element => {
                         toList.push(users.email);
                       });
-                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.createdBy.firstName;
+                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.createdBy;
                 mailLib.sendMail(toList,"Expense Delete Alert",text);
             }
         });

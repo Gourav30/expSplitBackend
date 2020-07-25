@@ -35,6 +35,10 @@ let expenseSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
+    // firstName: [{
+    //     user:{type: mongoose.Schema.Types.ObjectId, ref:'User', default: ''},
+    // }
+    // ],
     paidBy: [{
         user:{type: mongoose.Schema.Types.ObjectId, ref:'User'},
         amountLent: Number
