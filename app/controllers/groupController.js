@@ -195,7 +195,6 @@ let getAllGroups = (req, res) => {
         })
 }
 
-
 //end getAllgroups function
 /****************************************************************************************************/
 let groupOutstandingLent =(req,res) =>{

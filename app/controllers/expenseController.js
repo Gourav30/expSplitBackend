@@ -381,7 +381,6 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
                 mailLib.sendMail(toList,"Expense Update Alert",text);
             }
         });
-
     } else {
         logger.error('userId is missing','sendexpenseCreatedMail');
     }
