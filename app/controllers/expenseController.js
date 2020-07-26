@@ -101,7 +101,7 @@ let updateExpense = (req, res) => {
 
     let usersInvolved1 = JSON.parse(req.body.usersInvolved);
     let paidBy1 = JSON.parse(req.body.paidBy);
-    let updatedBy1 = JSON.parse(req.body.updatedBy);
+    //let updatedBy1 = JSON.parse(req.body.updatedBy);
 
     ExpenseModel.findOneAndUpdate({ 'expenseId': req.params.expenseId },
         { $set: { 'paidBy': [], 'usersInvolved': [] } }
@@ -123,7 +123,7 @@ let updateExpense = (req, res) => {
                         "expenseTitle": req.body.expenseTitle,
                         "expenseDescription": req.body.expenseDescription,
                         "expenseAmount": req.body.expenseAmount,
-                        "updatedBy": updatedBy1,
+                        //"updatedBy": req.body.body.updatedBy,
                         "paidBy": paidBy1,
                         "usersInvolved": usersInvolved1
                     }
@@ -144,6 +144,7 @@ let updateExpense = (req, res) => {
                     res.send(apiResponse);
 
                     ExpenseModel.findOne({ 'expenseId': req.params.expenseId })
+                        .populate({ path: 'createdBy', select: 'firstName' })
                         .populate({ path: 'updatedBy.user', select: 'firstName' })
                         .populate({ path: 'paidBy.user', select: 'firstName' })
                         .populate({ path: 'usersInvolved.user', select: 'firstName' })
@@ -274,7 +275,7 @@ eventEmitter.on('saveUpdateExpenseHistory', (data) => {
         expenseName: data.expenseTitle,
         expenseAmount: data.expenseAmount,
         actionType: "update Expense",
-        actionDoneBy: data.updatedBy,
+        actionDoneBy: data.createdBy,
         message: "updated Expense"
 
 
@@ -298,7 +299,7 @@ eventEmitter.on('saveDeleteExpenseHistory', (data) => {
         expenseAmount: data.expenseAmount,
         expenseName: data.expenseTitle,
         actionType: "delete Expense",
-        actionDoneBy: data.updatedBy,
+        actionDoneBy: data.createdBy,
         message: "deleted Expense"
 
 
