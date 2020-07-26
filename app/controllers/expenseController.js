@@ -340,7 +340,7 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
 
                     })
 
-                    let text = "Expense " + data.expenseTitle + " " + "created by " + data.createdBy + " " + "with amount " + data.expenseAmount;
+                    let text = "Hey there, Expense " + data.expenseTitle + " " + "created by " + data.createdBy + " " + "with amount " + data.expenseAmount;
                     mailLib.sendMail(toList, "Expense Creation Alert", text);
 
                 }
@@ -379,7 +379,7 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
 
                     })
 
-                    let text = "Expense " + data.expenseTitle + " " + "created by " + data.updatedBy + " " + "with amount " + data.expenseAmount;
+                    let text = "Hey there, Expense " + data.expenseTitle + " " + "updated by " + data.createdBy + " " + "with amount " + data.expenseAmount;
                     mailLib.sendMail(toList, "Expense Updation Alert", text);
 
                 }
@@ -418,7 +418,7 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
 
                     })
 
-                    let text = "Expense " + data.expenseTitle + " " + "deleted by " + data.updatedBy;
+                    let text = "Hey there, Expense " + data.expenseTitle + " " + "deleted by " + data.createdBy;
                     mailLib.sendMail(toList, "Expense Deletion Alert", text);
 
                 }

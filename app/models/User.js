@@ -21,6 +21,10 @@ let userSchema = new Schema({
     required:true,
     default: ''
   },
+  userName: {
+    type: String,
+    default: ''
+  },
   email: {
     type: String,
     required:true,
