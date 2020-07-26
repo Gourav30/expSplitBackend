@@ -62,12 +62,12 @@ let createExpense = (req, res) => {
     let newExpense = new ExpenseModel({
 
         expenseId: expenseId,
-        //firstName:firstName1,
         groupId: req.body.groupId,
         expenseTitle:req.body.expenseTitle,
         expenseDescription:req.body.expenseDescription,
         expenseAmount: req.body.expenseAmount,
         createdBy: req.body.createdBy,
+        updatedBy: req.body.createdBy,
         paidBy: paidBy1,
         usersInvolved: usersInvolved
 
@@ -124,6 +124,7 @@ let updateExpense = (req, res) => {
                             "expenseTitle" : req.body.expenseTitle,
                             "expenseDescription" : req.body.expenseDescription,
                             "expenseAmount":req.body.expenseAmount,
+                            "updatedBy": req.body.updatedBy,
                             "paidBy": paidBy1,
                             "usersInvolved":usersInvolved1
                         }
@@ -144,7 +145,7 @@ let updateExpense = (req, res) => {
                         res.send(apiResponse);
 
                      ExpenseModel.findOne({ 'expenseId': req.params.expenseId })
-                                .populate({ path: 'createdBy', select: 'firstName' })
+                                .populate({ path:'updatedBy', select: 'firstName' })
                                 .populate({path:'paidBy.user',select:'firstName'})
                                 .populate({path:'usersInvolved.user',select:'firstName'})
                                 .exec((err, data) => {
@@ -274,7 +275,7 @@ eventEmitter.on('saveUpdateExpenseHistory',(data) =>{
         expenseName:data.expenseTitle,
         expenseAmount:data.expenseAmount,
         actionType: "update Expense",
-        actionDoneBy: data.createdBy,
+        actionDoneBy: data.updatedBy,
         message: "updated Expense"
 
 
@@ -298,7 +299,7 @@ eventEmitter.on('saveDeleteExpenseHistory',(data) =>{
         expenseAmount:data.expenseAmount,
         expenseName:data.expenseTitle,
         actionType: "delete Expense",
-        actionDoneBy: data.createdBy,
+        actionDoneBy: data.updatedBy,
         message: "deleted Expense"
 
 
@@ -332,17 +333,13 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
             else  {
 
                     let users=groupDetails.users;
-                    //console.log(users);
-                    //console.log(data.firstName);
                     let toList=new Array();
-
                     users.forEach(element => {
 
                          logger.info(element.email)
                          toList.push(element.email);
 
                         })
-
 
                         let text="Expense "+data.expenseTitle+" "+"created by "+data.createdBy+" "+"with amount "+data.expenseAmount;
                 mailLib.sendMail(toList,"Expense Creation Alert",text);
@@ -358,7 +355,9 @@ eventEmitter.on('sendExpenseCreatedMail', (data) => {
 //send email for expense creation code is end
 
 
+//send email for  expense Updation code start
 eventEmitter.on('sendExpenseUpdateMail', (data) => {
+
     if (data.groupId) {
         groupModel.findOne({ groupId: data.groupId })
         .populate({path:'users',select:'firstName email'})
@@ -367,29 +366,37 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
                 logger.error('Error while finding user', 'expenseController: findUser()', 7)
             }
             else if (check.isEmpty(groupDetails)) {
+
                 logger.error('No User Found', 'expenseController: findUser()', 7)
             }
             else  {
 
                     let users=groupDetails.users;
-                    let toList=[];
-
+                    let toList=new Array();
                     users.forEach(element => {
-                        toList.push(users.email);
-                      });
-                        let text="Expense "+data.expenseTitle+" "+"updated by "+data.createdBy+" "+"with amount "+data.expenseAmount;
-                mailLib.sendMail(toList,"Expense Update Alert",text);
+
+                         logger.info(element.email)
+                         toList.push(element.email);
+
+                        })
+
+                        let text="Expense "+data.expenseTitle+" "+"created by "+data.updatedBy+" "+"with amount "+data.expenseAmount;
+                mailLib.sendMail(toList,"Expense Updation Alert",text);
+
             }
         });
+
     } else {
-        logger.error('userId is missing','sendexpenseCreatedMail');
+        logger.error('userId is missing','sendExpenseUpdateMail');
     }
 });
 
-//send email for expense creation  code is end
+//send email for expense updation code is end
 
 
+//send email for  expense deletion code start
 eventEmitter.on('sendExpenseDeleteMail', (data) => {
+
     if (data.groupId) {
         groupModel.findOne({ groupId: data.groupId })
         .populate({path:'users',select:'firstName email'})
@@ -404,13 +411,17 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
             else  {
 
                     let users=groupDetails.users;
-                    let toList=[];
-
+                    let toList=new Array();
                     users.forEach(element => {
-                        toList.push(users.email);
-                      });
-                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.createdBy;
-                mailLib.sendMail(toList,"Expense Delete Alert",text);
+
+                         logger.info(element.email)
+                         toList.push(element.email);
+
+                        })
+
+                        let text="Expense "+data.expenseTitle+" "+"deleted by "+data.updatedBy;
+                mailLib.sendMail(toList,"Expense Deletion Alert",text);
+
             }
         });
 
@@ -418,6 +429,10 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
         logger.error('userId is missing','sendExpenseDeleteMail');
     }
 });
+
+//send email for expense deletion code is end
+
+
 
 let getUserOutstandingLent =(req,res)=>{
 
