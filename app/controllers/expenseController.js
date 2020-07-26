@@ -57,7 +57,6 @@ let createExpense = (req, res) => {
 
     let usersInvolved = JSON.parse(req.body.usersInvolved);
     let paidBy1 = JSON.parse(req.body.paidBy);
-    let updatedBy1 = JSON.parse(req.body.updatedBy);
 
     let newExpense = new ExpenseModel({
 
@@ -67,7 +66,7 @@ let createExpense = (req, res) => {
         expenseDescription: req.body.expenseDescription,
         expenseAmount: req.body.expenseAmount,
         createdBy: req.body.createdBy,
-        updatedBy: updatedBy1,
+        updatedBy: req.body.updatedBy,
         paidBy: paidBy1,
         usersInvolved: usersInvolved
 
