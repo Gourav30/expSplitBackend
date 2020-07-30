@@ -453,7 +453,20 @@ let getSingleUser = (req, res) => {
 }
 let logout = (req, res) => {
 
-
+    UserModel.findOneAndRemove({ userId: req.user.userId }, (err, result) => {
+        if (err) {
+            console.log(err)
+            logger.error(err.message, 'userController: logout', 10)
+            let apiResponse = response.generate(true, `error occurred: ${err.message}`, 500, null)
+            res.send(apiResponse)
+        } else if (check.isEmpty(result)) {
+            let apiResponse = response.generate(true, 'Already Logged Out or Invalid UserId', 404, null)
+            res.send(apiResponse)
+        } else {
+            let apiResponse = response.generate(false, 'Logged Out Successfully', 200, null)
+            res.send(apiResponse)
+        }
+    })
 } // end of the logout function.
 
 
