@@ -324,7 +324,7 @@ let forgotPassword = (req, res) => {
                     to: newUserObj.email,
                     subject: 'Link to Password Reset - Expense Splitter',
                     html: `<p>Dear User,</p>
-                            <p>Your Password Reset Token is : </p> <h1>${newUserObj.resetPasswordToken}</h1>`
+                            <p>Your Password Reset Token is : </p> <h3>${newUserObj.resetPasswordToken}</h3>`
                 }
                 transporter.sendMail(mailOptions, function (err, data) {
                     if (err) {
