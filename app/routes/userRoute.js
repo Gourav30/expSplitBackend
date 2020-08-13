@@ -11,7 +11,7 @@ module.exports.setRouter = (app) => {
 
     app.use(cors());
 
-    app.get(`${baseUrl}/view/all`, auth.isAuthorized, userController.getAllUser);
+    app.get(`${baseUrl}/view/all`, userController.getAllUser);
 
     /**
 	 * @apiGroup users
