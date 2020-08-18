@@ -22,7 +22,7 @@ const ExpenseHistoryModel = mongoose.model('ExpenseHistory')
 let getSingleExpenseDetails = (req, res) => {
 
     ExpenseModel.findOne({ 'expenseId': req.params.expenseId })
-        .populate({ path: 'createdBy', select: 'firstName' })
+        .populate({ path: 'updatedBy', select: 'firstName' })
         .populate({ path: 'paidBy.user', select: 'firstName' })
         .populate({ path: 'usersInvolved.user', select: 'firstName' })
         .exec((err, result) => {
@@ -72,6 +72,9 @@ let createExpense = (req, res) => {
 
     })
 
+        console.log("createdBy", req.body.createdBy)
+        console.log("updated by", req.body.updatedBy)
+        console.log("newExpense",newExpense)
     newExpense.save((err, result) => {
         if (err) {
             logger.error(err.message, 'expense Controller: createExpense', 10)
@@ -84,7 +87,6 @@ let createExpense = (req, res) => {
             res.send(apiResponse);
             eventEmitter.emit('saveCreateExpenseHistory', result);
             eventEmitter.emit('sendExpenseCreatedMail', result);
-
 
         }
 
@@ -101,29 +103,23 @@ let updateExpense = (req, res) => {
 
     let usersInvolved1 = JSON.parse(req.body.usersInvolved);
     let paidBy1 = JSON.parse(req.body.paidBy);
-    //let updatedBy1 = JSON.parse(req.body.updatedBy);
 
     ExpenseModel.findOneAndUpdate({ 'expenseId': req.params.expenseId },
-        { $set: { 'paidBy': [], 'usersInvolved': [] } }
-        , { new: true }
-    ).exec((err, result) => {
+        { $set: { 'paidBy': [], 'usersInvolved': []}}, { new: true }).exec((err, result) => {
         if (err) {
-            logger.error(err.message, 'expense Controller: updateexpense', 10)
+            logger.error(err.message, 'expense Controller: updateExpense', 10)
         }
         else {
             logger.info('emptied arrays', 'expense Controller: updateExpense', result)
 
-            ExpenseModel.findOneAndUpdate(
-                {
-                    'expenseId': req.params.expenseId
-                },
+            ExpenseModel.findOneAndUpdate({ 'expenseId': req.params.expenseId },
                 {
                     $set:
                     {
                         "expenseTitle": req.body.expenseTitle,
                         "expenseDescription": req.body.expenseDescription,
                         "expenseAmount": req.body.expenseAmount,
-                        //"updatedBy": req.body.body.updatedBy,
+                        "updatedBy": req.body.updatedBy,
                         "paidBy": paidBy1,
                         "usersInvolved": usersInvolved1
                     }
@@ -145,7 +141,7 @@ let updateExpense = (req, res) => {
 
                     ExpenseModel.findOne({ 'expenseId': req.params.expenseId })
                         .populate({ path: 'createdBy', select: 'firstName' })
-                        .populate({ path: 'updatedBy.user', select: 'firstName' })
+                        .populate({ path: 'updatedBy', select: 'firstName' })
                         .populate({ path: 'paidBy.user', select: 'firstName' })
                         .populate({ path: 'usersInvolved.user', select: 'firstName' })
                         .exec((err, data) => {
@@ -181,6 +177,7 @@ let getAllExpenses = (req, res) => {
 
     ExpenseModel.find({ 'groupId': req.params.groupId })
         .populate({ path: 'createdBy', select: 'firstName' })
+        .populate({ path: 'updatedBy', select: 'firstName' })
         .populate({ path: 'paidBy.user', select: 'firstName' })
         .exec((err, result) => {
 
@@ -275,7 +272,7 @@ eventEmitter.on('saveUpdateExpenseHistory', (data) => {
         expenseName: data.expenseTitle,
         expenseAmount: data.expenseAmount,
         actionType: "update Expense",
-        actionDoneBy: data.createdBy,
+        actionDoneBy: data.updatedBy,
         message: "updated Expense"
 
 
@@ -299,7 +296,7 @@ eventEmitter.on('saveDeleteExpenseHistory', (data) => {
         expenseAmount: data.expenseAmount,
         expenseName: data.expenseTitle,
         actionType: "delete Expense",
-        actionDoneBy: data.createdBy,
+        actionDoneBy: data.updatedBy,
         message: "deleted Expense"
 
 
@@ -361,6 +358,7 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
     if (data.groupId) {
         groupModel.findOne({ groupId: data.groupId })
             .populate({ path: 'users', select: 'firstName email' })
+            .populate({ path: 'updatedBy', select: 'firstName' })
             .exec((err, groupDetails) => {
                 if (err) {
                     logger.error('Error while finding user', 'expenseController: findUser()', 7)
@@ -380,7 +378,7 @@ eventEmitter.on('sendExpenseUpdateMail', (data) => {
 
                     })
 
-                    let text = "Hey there, Expense " + data.expenseTitle + " " + "updated by " + data.createdBy + " " + "with amount " + data.expenseAmount;
+                    let text = "Hey there, Expense " + data.expenseTitle + " " +"updated by " + data.updatedBy +  "with amount " + data.expenseAmount;
                     mailLib.sendMail(toList, "Expense Updation Alert", text);
 
                 }
@@ -419,7 +417,7 @@ eventEmitter.on('sendExpenseDeleteMail', (data) => {
 
                     })
 
-                    let text = "Hey there, Expense " + data.expenseTitle + " " + "deleted by " + data.createdBy;
+                    let text = "Hey there, Expense " + data.expenseTitle + "deleted by " + data.updatedBy;
                     mailLib.sendMail(toList, "Expense Deletion Alert", text);
 
                 }
